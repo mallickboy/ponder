@@ -24,7 +24,7 @@ export default function Home() {
   // Initialize user state with default values
   const [user, setUser] = useState({
     id: 0,
-    name: "Tamal Mallick",
+    name: "User",
     avatar: "/user-avatar.png",
     level: 1,
     gems: 7,
@@ -59,7 +59,7 @@ export default function Home() {
         // Update user state with fetched data
         setUser(currentUser => ({
           ...currentUser,
-          name: userName,
+          name: userName || currentUser.name,
           avatar: clerkUser.imageUrl || currentUser.avatar,
           id: profileData.id || 0,
           level: profileData.level || 1,

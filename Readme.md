@@ -9,6 +9,12 @@ cd backend
 uvicorn app.server:app 
 
 uvicorn app.server:app --host 0.0.0.0 --port 8080  ( ALL )
+
+/home/mallickboy/ponder/backend/.venv/bin/gunicorn app.server:app \
+  --worker-class uvicorn.workers.UvicornWorker \
+  --bind 0.0.0.0:8080 \
+  --workers 4 \
+  --timeout 120
 ``` 
 - For very first run
 ```bash
@@ -92,6 +98,12 @@ npm i
 
 ### Deploy Frontend Seperately 
 ```bash
+cd frontend
+
+sudo apt install npm
+
+npm i
+
 npm run build
 
 npm start
