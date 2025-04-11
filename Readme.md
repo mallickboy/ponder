@@ -1,6 +1,7 @@
 # Run code
 
 ## Start Frontend
+***Add environment variables in /frontend/env.local and rename it to /frontend/.env.local***
 ```bash
 cd frontend
 
@@ -12,7 +13,7 @@ cd frontend
 
 npm i
 ```
-If you are deploying using vercel take environment variables [ name : value ] from /frontend/.env.local as vercel by default uses https so http://ip would be blocked by the browser so get https://your_domain.com first and for all the variables change domain portion with your custom domain like 
+- If you are deploying using vercel take environment variables [ name : value ] from /frontend/.env.local as vercel by default uses https so http://ip would be blocked by the browser so get https://your_domain.com first and for all the variables change domain portion with your custom domain like 
 ``` bash
 https://api.ponder.mallickboy.com/api/v1/use....  ->  https://your_domain.com/api/v1/use.... 
 ```
@@ -21,6 +22,7 @@ Details instructions has been provided in Backend Server Setup and later on port
 ## Start Backend 
 
 ### Test run backend
+***Add environment variables in /backend/.env and rename it to /backend/.env***
 ```bash
 cd backend
 
