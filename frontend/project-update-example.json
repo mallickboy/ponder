@@ -1,0 +1,61 @@
+[
+    {
+      "title": "Problem & Idea Validation",
+      "weekRange": "1-2",
+      "coreQuestions": [
+        "How many people would buy a mask-shaped microphone?",
+        "How often do people need to keep their call inaudible to others?",
+        "What existing solutions do people use for privacy in public calls?"
+      ],
+      "steps": [
+        "Talk to people in places like libraries or cafes to understand their privacy concerns.",
+        "Run an online survey to see how common this issue is.",
+        "Collect feedback about the mask microphone idea.",
+        "Analyze competitors and alternative solutions"
+      ]
+    },
+    {
+      "title": "Customer Discovery & Concept Development",
+      "weekRange": "3-6",
+      "coreQuestions": [
+        "Who would benefit most from a privacy-focused mask microphone?",
+        "What features are absolutely essential?",
+        "What marketing channels performs the best?"
+      ],
+      "steps": [
+        "Create customer personas that represent your target audience, like students or remote workers.",
+        "Reach out to target audience and dive deeper into audience's need.",
+        "Analyze results to understand customer pain points better.",
+        "Research similar products and learn their pro and con.",
+        "Design a landing page and build a waitlist."
+      ]
+    },
+    {
+      "title": "Business Strategy Development",
+      "weekRange": "7-8",
+      "coreQuestions": [
+        "What is the go-to-market strategy?",
+        "What pricing model works best for this product?",
+        "How to scale manufacturing and distribution?"
+      ],
+      "steps": [
+        "Define your business model",
+        "Create financial projections",
+        "Develop marketing strategy"
+      ]
+    },
+    {
+      "title": "MVP Development",
+      "weekRange": "9-12",
+      "coreQuestions": [
+        "What is the minimum viable product?",
+        "How can we test the product with real users?"
+      ],
+      "steps": [
+        "Design basic prototype",
+        "Test with small user group",
+        "Iterate based on feedback",
+        "Prepare for initial production run"
+      ]
+    }
+  ]

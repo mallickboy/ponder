@@ -1,0 +1,169 @@
+/* src/app/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --navy-900: #0E1338;
+  --navy-800: #1A2352;
+}
+
+html {
+  overflow:   scroll;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.scroll-container {
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+.header-project{
+  padding: 2vh;
+  box-shadow: rgba(120, 132, 255, 0.5) 0px 6px 4px 2px;
+}
+
+.header-profile {
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.header-profile-icon{
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.right-most-flex{
+  margin: 2%;
+  margin-bottom: 5%;
+  height: 95%;
+  max-width: 40%;
+}
+
+/* Chat divition */
+.chat-box{
+  margin-top: 3%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 9px 10px 10px;
+  background-color: #ffffffea !important;
+  border-radius: 20px;
+}
+.chat-input{
+  border-radius: 22px;
+  box-shadow: rgba(120, 132, 255, 1) 0px 0px 10px 1px;
+  height: 6vh;
+}
+
+.chat-show-bot {
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 1px; */
+  box-shadow: rgba(0, 0, 0, 0.2) 1px 3px 3px 1px;
+  color: black;
+  font-family: 'Nunito', Calibri, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Nunito Medium */
+  font-size: 14px;
+  border-radius: 15px;
+}
+
+.chat-show-user {
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 1px; */
+  box-shadow: rgba(120, 132, 255, 0.5) 0px 6px 4px -2px;
+  background-color: #1A2352;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350; /* Roboto Regular */
+  font-size: 14px;
+  border-radius: 15px;
+}
+
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+body {
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  /* background-color: #F9F9FA; */
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  background-color: #F9F9FA !important;
+}
+
+/* Custom colors */
+.bg-navy-900 {
+  background-color: var(--navy-900);
+}
+
+.bg-navy-800 {
+  background-color: var(--navy-800);
+}
+
+.text-navy-900 {
+  color: var(--navy-900);
+}
+
+
+@layer components {
+  /* Typography Styles */
+
+  .text-top-heading {
+    @apply font-nunito text-[#7884FF] text-[14px] font-bold;
+  }
+
+  .text-main-heading {
+    @apply font-nunito text-white text-[26px] font-extrabold;
+  }
+
+  .text-header-profile {
+    @apply font-nunito text-black text-[14px] font-extrabold;
+  }
+
+  .text-project-timeline {
+    @apply font-nunito text-black text-[12px] font-bold;
+  }
+
+  .text-project-subheading {
+    @apply font-nunito text-[#FC8D0B] text-[20px] font-extrabold;
+  }
+
+  .text-project-core {
+    @apply font-nunito text-[#3B2DD5] text-[12px] font-extrabold;
+  }
+
+  .text-project-body {
+    @apply font-nunito text-black text-[12px] font-semibold;
+  }
+
+  .text-navbar-tab {
+    @apply font-nunito text-white text-[16px] font-extrabold;
+  }
+
+  .text-navbar-tab-active {
+    @apply font-nunito text-black text-[16px] font-extrabold;
+  }
+
+  .text-chat-po {
+    @apply font-nunito text-white text-[12px] font-medium;
+  }
+
+  .text-chat-user {
+    @apply font-roboto text-white text-[12px] font-normal;
+  }
+}
