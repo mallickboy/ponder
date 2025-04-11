@@ -16,6 +16,7 @@ import { fetchOrCreateUserProfile } from '@/services/api';
 import { updateUserProject } from '@/services/api';
 
 export default function Home() {
+  console.log("\n\n API ACCESS POINT:  ", process.env.NEXT_PUBLIC_DB_PRIVATE_USER_PROFILE, "\n\n")
   const { user: clerkUser, isLoaded: isClerkLoaded } = useUser();
   const [sections, setSections] = useState([]);
   const { getToken } = useAuth();
@@ -59,7 +60,7 @@ export default function Home() {
         // Update user state with fetched data
         setUser(currentUser => ({
           ...currentUser,
-          name: userName || currentUser.name,
+          name: userName ,
           avatar: clerkUser.imageUrl || currentUser.avatar,
           id: profileData.id || 0,
           level: profileData.level || 1,
