@@ -8,7 +8,7 @@ cd backend
 
 uvicorn app.server:app 
 
-uvicorn app.server:app --host 0.0.0.0 --port 8000   ( ALL )
+uvicorn app.server:app --host 0.0.0.0 --port 8080  ( ALL )
 ``` 
 - For very first run
 ```bash
