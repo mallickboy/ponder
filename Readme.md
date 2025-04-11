@@ -1,31 +1,6 @@
 # Run code
 
-### Start Backend 
-```bash
-cd backend
-
-.venv\Scripts\activate  
-
-uvicorn app.server:app 
-
-uvicorn app.server:app --host 0.0.0.0 --port 8080  ( ALL )
-
-/home/mallickboy/ponder/backend/.venv/bin/gunicorn app.server:app \
-  --worker-class uvicorn.workers.UvicornWorker \
-  --bind 0.0.0.0:8080 \
-  --workers 4 \
-  --timeout 120
-``` 
-- For very first run
-```bash
-cd backend
-
-.venv\Scripts\activate 
-
-pip install -r requirements.txt
-```
-
-### Start Frontend
+## Start Frontend
 ```bash
 cd frontend
 
@@ -37,7 +12,83 @@ cd frontend
 
 npm i
 ```
+If you are deploying using vercel take environment variables [ name : value ] from /frontend/.env.local as vercel by default uses https so http://ip would be blocked by the browser so get https://your_domain.com first and for all the variables change domain portion with your custom domain like 
+``` bash
+https://api.ponder.mallickboy.com/api/v1/use....  ->  https://your_domain.com/api/v1/use.... 
+```
+Details instructions has been provided in Backend Server Setup and later on portion
 
+## Start Backend 
+
+### Test run backend
+```bash
+cd backend
+
+.venv\Scripts\activate  
+
+uvicorn app.server:app 
+
+uvicorn app.server:app --host 0.0.0.0 --port 8080  ( ALL )
+
+/home/mallickboy/ponder/backend/.venv/bin/gunicorn app.server:app \ 
+  --worker-class uvicorn.workers.UvicornWorker \
+  --bind 0.0.0.0:8080 \
+  --workers 2 \
+  --timeout 120
+``` 
+- For very first run
+```bash
+cd backend
+
+.venv\Scripts\activate 
+
+pip install -r requirements.txt
+```
+
+### Backend Server Setup
+
+#### Deploy using guinicorn (uvicorn) as a service
+
+```bash
+sudo nano /etc/systemd/system/api.ponder.service     paste code of server_setup/api.ponder.service
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart api.ponder.service
+
+sudo systemctl enable api.ponder.service
+
+sudo systemctl status api.ponder.service
+```
+#### NGINX
+```bash
+sudo nano /etc/nginx/sites-available/api.ponder.mallickboy.com  ( copy contents of server_setup/api.ponder.mallickboy.com)
+
+sudo ln -s /etc/nginx/sites-available/api.ponder.mallickboy.com /etc/nginx/sites-enabled/
+
+sudo nginx -t 
+
+sudo systemctl reload nginx
+
+sudo systemctl restart nginx
+
+```
+
+#### Domain & SSL
+```bash
+Type = "A Record"   Host= "api.ponder"    Value = "server public ip"  TTL = "Automatic"  ( Sub-Domain )
+
+sudo apt install certbot python3-certbot-nginx
+
+sudo certbot --nginx -d api.ponder.mallickboy.com
+
+sudo certbot certificates
+
+sudo systemctl status certbot.timer (check auto renewal)
+```
+
+
+# My Plans
 
 ## Now manually design the frontend & add signup/in
 
@@ -94,7 +145,12 @@ npm i
 ## Next 
 - deploy
 
-# Deployment
+## Deployment
+- done 
+- added domain & https as browser blocked no reqest from https to http for security 
+
+## Next 
+- Connect designed gpt backend with gpt api & maintain personalized guidence
 
 ### Deploy Frontend Seperately 
 ```bash
@@ -109,5 +165,4 @@ npm run build
 npm start
 ```
 
-### Deploy Backend Seperately
-same as normal
+
