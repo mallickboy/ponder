@@ -7,7 +7,9 @@ cd backend
 .venv\Scripts\activate  
 
 uvicorn app.server:app 
-```
+
+uvicorn app.server:app --host 0.0.0.0 --port 8000   ( ALL )
+``` 
 - For very first run
 ```bash
 cd backend
@@ -84,3 +86,16 @@ npm i
 - Working on hosting
 
 ## Next 
+- deploy
+
+# Deployment
+
+### Deploy Frontend Seperately 
+```bash
+npm run build
+
+npm start
+```
+
+### Deploy Backend Seperately
+same as normal

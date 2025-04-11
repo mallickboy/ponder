@@ -106,10 +106,10 @@ def verify_clerk_session(session_token: str, claimed_user_id: str):
         session_user_id = payload.get("sub")
 
         # Check if claimed user_id matches the session's user_id
-        print("####Clerk Session Verified")
+        # print("####Clerk Session Verified")
         return session_user_id == claimed_user_id
     except Exception as e:
-        print(f"Error verifying Clerk session: {e}")
+        # print(f"Error verifying Clerk session: {e}")
         return False
 
 # Dependency to verify user authentication
@@ -139,7 +139,7 @@ def get_or_create_user_profile(user_data: UserProfileInput):
         
         if user is None:
             # Create new user with default values
-            print(f"Creating new user profile for {user_data.user_name} ({user_data.user_id})")
+            # print(f"Creating new user profile for {user_data.user_name} ({user_data.user_id})")
             cursor.execute(
                 """
                 INSERT INTO users (user_id, user_name, gems, points, level, project_json_object)
@@ -158,13 +158,14 @@ def get_or_create_user_profile(user_data: UserProfileInput):
             user = cursor.fetchone()
             conn.commit()
         else:
-            print(f"Found existing user: {user['user_name']} ({user['user_id']})")
+            # print(f"Found existing user: {user['user_name']} ({user['user_id']})")
+            pass
         
         return {"success": True, "profile": user}
     
     except Exception as e:
         conn.rollback()
-        print(f"Database error: {e}")
+        # print(f"Database error: {e}")
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
     
     finally:
@@ -208,7 +209,7 @@ def update_user_project(project_update: ProjectUpdate):
     
     except Exception as e:
         conn.rollback()
-        print(f"Database error: {e}")
+        # print(f"Database error: {e}")
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
     
     finally:
@@ -232,7 +233,7 @@ def get_user_profile(user_id: str = Depends(verify_auth)):
         return {"success": True, "profile": user}
     
     except Exception as e:
-        print(f"Database error: {e}")
+        # print(f"Database error: {e}")
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
     
     finally:
